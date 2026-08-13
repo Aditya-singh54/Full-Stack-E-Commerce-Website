@@ -84,7 +84,7 @@ function ProductReviewsSection({ productId, reviews = [], averageRating = 0, onR
                 key={r._id}
                 style={{
                   padding: '1.25rem',
-                  background: 'rgba(15, 23, 42, 0.35)',
+                  background: 'var(--bg-secondary)',
                   border: '1px solid var(--border-color)',
                   borderRadius: '12px',
                   position: 'relative'
@@ -123,7 +123,7 @@ function ProductReviewsSection({ productId, reviews = [], averageRating = 0, onR
         </div>
 
         {/* Right Side: Review Writer Form */}
-        <div style={{ padding: '1.75rem', background: 'rgba(19, 26, 44, 0.35)', border: '1px solid var(--border-color)', borderRadius: '16px', width: '100%' }}>
+        <div style={{ padding: '1.75rem', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '16px', width: '100%' }}>
           <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '1.25rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
             Write a Review
           </h3>
