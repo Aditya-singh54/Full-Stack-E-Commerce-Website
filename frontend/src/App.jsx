@@ -17,6 +17,8 @@ import AdminDashboardPage from './pages/AdminDashboardPage';
 import ComparePage from './pages/ComparePage';
 import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/AdminRoute';
+import PromoSlider from './components/PromoSlider';
+import RecommendationSection from './components/RecommendationSection';
 
 function AppContent() {
   const { user, logout } = useContext(AuthContext);
@@ -77,26 +79,9 @@ function AppContent() {
       <main className="app-main">
         <Routes>
           <Route path="/" element={
-            <div className="app-hero">
-              <div className="hero-content">
-                <h1>Welcome to ShopSphere</h1>
-                <p>Explore premium products, seamless orders, and a beautiful full-stack interface.</p>
-                <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '1.5rem' }}>
-                  <Link to="/products" className="btn btn-primary" style={{ display: 'inline-flex', textDecoration: 'none', width: 'auto' }}>
-                    Shop Products
-                  </Link>
-                  {!user && (
-                    <Link to="/login" className="btn" style={{ display: 'inline-flex', textDecoration: 'none', width: 'auto', border: '1px solid var(--border-color)', backgroundColor: 'rgba(255,255,255,0.03)', color: '#fff' }}>
-                      Sign In
-                    </Link>
-                  )}
-                </div>
-                {user && (
-                  <div className="user-greeting" style={{ marginTop: '1.5rem' }}>
-                    Logged in as: <strong>{user.name}</strong> ({user.role})
-                  </div>
-                )}
-              </div>
+            <div style={{ padding: '2rem 5%', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+              <PromoSlider />
+              <RecommendationSection title="Featured Popular Products" />
             </div>
           } />
           
