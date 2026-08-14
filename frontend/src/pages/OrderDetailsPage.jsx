@@ -249,7 +249,7 @@ function OrderDetailsPage() {
                       )}
                     </h4>
                     <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                      Quantity: {item.quantity} &times; ${item.price.toFixed(2)}
+                      Quantity: {item.quantity} &times; ₹{item.price.toFixed(2)}
                     </span>
                   </div>
                   <span style={{ fontSize: '1.1rem', fontWeight: 700 }}>
@@ -271,7 +271,7 @@ function OrderDetailsPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.95rem', color: 'var(--text-secondary)' }}>
               <span>Items Total</span>
-              <span>${itemsSubtotal.toFixed(2)}</span>
+              <span>₹{itemsSubtotal.toFixed(2)}</span>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.95rem', color: 'var(--text-secondary)' }}>

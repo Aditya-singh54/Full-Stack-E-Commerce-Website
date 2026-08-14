@@ -106,11 +106,11 @@ function ProductCard({ product }) {
           <div className="product-price-box">
             {hasDiscount ? (
               <>
-                <span className="current-price">${discountedPrice}</span>
-                <span className="original-price">${product.price.toFixed(2)}</span>
+                <span className="current-price">₹{discountedPrice}</span>
+                <span className="original-price">₹{product.price.toFixed(2)}</span>
               </>
             ) : (
-              <span className="current-price">${product.price.toFixed(2)}</span>
+              <span className="current-price">₹{product.price.toFixed(2)}</span>
             )}
           </div>
         </div>

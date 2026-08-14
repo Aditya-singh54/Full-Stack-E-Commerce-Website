@@ -140,7 +140,7 @@ function ProductsPage() {
             />
             <div className="price-range-labels">
               <span>₹0</span>
-              <span className="price-current-badge">${maxPrice}</span>
+              <span className="price-current-badge">₹{maxPrice}</span>
               <span>₹2000+</span>
             </div>
           </div>
