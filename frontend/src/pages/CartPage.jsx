@@ -239,7 +239,7 @@ function CartPage() {
             >
               <span>Total Amount</span>
               <span style={{ color: 'var(--primary)', textShadow: '0 0 10px rgba(99, 102, 241, 0.15)' }}>
-                ${grandTotal.toFixed(2)}
+                ₹{grandTotal.toFixed(2)}
               </span>
             </div>
 

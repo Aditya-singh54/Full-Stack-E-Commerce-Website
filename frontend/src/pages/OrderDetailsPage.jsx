@@ -298,7 +298,7 @@ function OrderDetailsPage() {
           >
             <span>Total Paid</span>
             <span style={{ color: 'var(--primary)' }}>
-              ${order.totalAmount.toFixed(2)}
+              ₹{order.totalAmount.toFixed(2)}
             </span>
           </div>
 
