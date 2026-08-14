@@ -8,10 +8,10 @@ const connectDB = async () => {
     const conn = await mongoose.connect(process.env.MONGO_URI);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
     
-    // 1. Auto-create Admin account if not exists in MongoDB Atlas/Production
+    // 1. Auto-create or upgrade Admin account if not exists/incorrect role in MongoDB Atlas/Production
     const adminEmail = 'admin@shopsphere.com';
-    const adminExists = await User.findOne({ email: adminEmail });
-    if (!adminExists) {
+    let adminUser = await User.findOne({ email: adminEmail });
+    if (!adminUser) {
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash('admin123', salt);
       await User.create({
@@ -21,6 +21,10 @@ const connectDB = async () => {
         role: 'admin'
       });
       console.log('Auto-Seed: Admin account created successfully!');
+    } else if (adminUser.role !== 'admin') {
+      adminUser.role = 'admin';
+      await adminUser.save();
+      console.log('Auto-Seed: Existing admin account upgraded to admin role successfully!');
     }
 
     // 2. Auto-seed catalog products if database is empty (e.g. fresh MongoDB Atlas deployment)
