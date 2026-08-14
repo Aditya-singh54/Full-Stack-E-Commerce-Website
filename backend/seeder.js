@@ -318,4 +318,8 @@ const seedData = async () => {
   }
 };
 
-seedData();
+module.exports = sampleProducts;
+
+if (require.main === module) {
+  seedData();
+}
