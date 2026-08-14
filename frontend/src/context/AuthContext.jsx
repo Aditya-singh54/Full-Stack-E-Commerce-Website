@@ -10,7 +10,7 @@ axios.interceptors.request.use(
       ? JSON.parse(localStorage.getItem('userInfo'))
       : null;
     if (userInfo && userInfo.token) {
-      config.headers.Authorization = `Bearer ${userInfo.token}`;
+      config.headers.Authorization = `Bearer ₹{userInfo.token}`;
     }
     return config;
   },
@@ -65,13 +65,26 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const loginWithGoogle = async (name, email) => {
+    try {
+      const res = await axios.post('/api/auth/google-login', { name, email });
+      const userData = res.data.data;
+      localStorage.setItem('userInfo', JSON.stringify(userData));
+      setUser(userData);
+      return { success: true, data: userData };
+    } catch (error) {
+      const message = error.response?.data?.message || 'Google Login failed. Please try again.';
+      return { success: false, message };
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem('userInfo');
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout }}>
+    <AuthContext.Provider value={{ user, loading, login, register, logout, loginWithGoogle }}>
       {children}
     </AuthContext.Provider>
   );

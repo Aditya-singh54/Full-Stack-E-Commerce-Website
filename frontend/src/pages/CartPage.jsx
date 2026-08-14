@@ -22,7 +22,7 @@ function CartPage() {
     const newQty = currentQty + increment;
     if (newQty < 1) return;
     if (newQty > stock) {
-      setErrorMsg(`Cannot exceed available stock of ${stock} items.`);
+      setErrorMsg(`Cannot exceed available stock of ₹{stock} items.`);
       setTimeout(() => setErrorMsg(''), 4000);
       return;
     }
@@ -128,11 +128,11 @@ function CartPage() {
                     
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.25rem' }}>
                       <span style={{ fontSize: '1.05rem', fontWeight: 700 }}>
-                        ${unitPrice.toFixed(2)}
+                        ₹{unitPrice.toFixed(2)}
                       </span>
                       {hasDiscount && (
                         <span style={{ fontSize: '0.85rem', textDecoration: 'line-through', color: 'var(--text-muted)' }}>
-                          ${product.price.toFixed(2)}
+                          ₹{product.price.toFixed(2)}
                         </span>
                       )}
                     </div>
@@ -171,7 +171,7 @@ function CartPage() {
                   {/* Item Subtotal & Delete Action */}
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.5rem', minWidth: '100px' }}>
                     <span style={{ fontSize: '1.15rem', fontWeight: 800 }}>
-                      ${(unitPrice * item.quantity).toFixed(2)}
+                      ₹{(unitPrice * item.quantity).toFixed(2)}
                     </span>
                     <button
                       onClick={() => handleRemoveItem(product._id)}
@@ -204,24 +204,24 @@ function CartPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.95rem', color: 'var(--text-secondary)' }}>
                 <span>Subtotal (Items price)</span>
-                <span>${subtotal.toFixed(2)}</span>
+                <span>₹{subtotal.toFixed(2)}</span>
               </div>
               
               {discountAmount > 0 && (
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.95rem', color: 'var(--success)', fontWeight: 500 }}>
                   <span>Discounts Saved</span>
-                  <span>-${discountAmount.toFixed(2)}</span>
+                  <span>-₹{discountAmount.toFixed(2)}</span>
                 </div>
               )}
 
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.95rem', color: 'var(--text-secondary)' }}>
                 <span>Shipping Fee</span>
-                <span>{shippingFee === 0 ? 'FREE' : `$${shippingFee.toFixed(2)}`}</span>
+                <span>{shippingFee === 0 ? 'FREE' : `₹${shippingFee.toFixed(2)}`}</span>
               </div>
               
               {shippingFee > 0 && (
                 <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '-0.25rem', textAlign: 'right' }}>
-                  Free shipping on orders above $100
+                  Free shipping on orders above ₹100
                 </span>
               )}
             </div>
@@ -239,7 +239,7 @@ function CartPage() {
             >
               <span>Total Amount</span>
               <span style={{ color: 'var(--primary)', textShadow: '0 0 10px rgba(99, 102, 241, 0.15)' }}>
-                ${grandTotal.toFixed(2)}
+                ₹{grandTotal.toFixed(2)}
               </span>
             </div>
 

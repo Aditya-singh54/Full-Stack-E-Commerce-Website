@@ -139,9 +139,9 @@ function ProductsPage() {
               className="price-slider"
             />
             <div className="price-range-labels">
-              <span>$0</span>
-              <span className="price-current-badge">${maxPrice}</span>
-              <span>$2000+</span>
+              <span>₹0</span>
+              <span className="price-current-badge">₹{maxPrice}</span>
+              <span>₹2000+</span>
             </div>
           </div>
         </div>
@@ -199,7 +199,7 @@ function ProductsPage() {
         </div>
 
         {naturalMessage && (
-          <div className={`natural-search-banner ${isFallback ? 'fallback' : ''}`} style={{ marginBottom: '1.5rem' }}>
+          <div className={`natural-search-banner ₹{isFallback ? 'fallback' : ''}`} style={{ marginBottom: '1.5rem' }}>
             <span style={{ fontWeight: 800 }}>🤖 AI Search Interpretation:</span> {naturalMessage}
           </div>
         )}
@@ -242,7 +242,7 @@ function ProductsPage() {
                   <button
                     key={pNum + 1}
                     onClick={() => setPage(pNum + 1)}
-                    className={`pagination-btn number ${page === pNum + 1 ? 'active' : ''}`}
+                    className={`pagination-btn number ₹{page === pNum + 1 ? 'active' : ''}`}
                   >
                     {pNum + 1}
                   </button>

@@ -19,6 +19,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/AdminRoute';
 import PromoSlider from './components/PromoSlider';
 import RecommendationSection from './components/RecommendationSection';
+import CategoryStrip from './components/CategoryStrip';
 
 function AppContent() {
   const { user, logout } = useContext(AuthContext);
@@ -38,12 +39,12 @@ function AppContent() {
         
         {/* Mobile Hamburger Toggle Button */}
         <button className="nav-toggle-btn" onClick={toggleMenu} aria-label="Toggle Navigation Menu">
-          <div className={`hamburger-line ${menuOpen ? 'open' : ''}`}></div>
-          <div className={`hamburger-line ${menuOpen ? 'open' : ''}`}></div>
-          <div className={`hamburger-line ${menuOpen ? 'open' : ''}`}></div>
+          <div className={`hamburger-line ₹{menuOpen ? 'open' : ''}`}></div>
+          <div className={`hamburger-line ₹{menuOpen ? 'open' : ''}`}></div>
+          <div className={`hamburger-line ₹{menuOpen ? 'open' : ''}`}></div>
         </button>
 
-        <nav className={`nav-links ${menuOpen ? 'mobile-open' : ''}`}>
+        <nav className={`nav-links ₹{menuOpen ? 'mobile-open' : ''}`}>
           <Link to="/" onClick={closeMenu}>Home</Link>
           <Link to="/products" onClick={closeMenu}>Shop</Link>
           {user ? (
@@ -79,7 +80,8 @@ function AppContent() {
       <main className="app-main">
         <Routes>
           <Route path="/" element={
-            <div style={{ padding: '2rem 5%', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <div style={{ padding: '2rem 5%', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <CategoryStrip />
               <PromoSlider />
               <RecommendationSection title="Featured Popular Products" />
             </div>

@@ -170,10 +170,10 @@ function ComparePage() {
                   const finalPrice = hasDiscount ? item.price * (1 - item.discount / 100) : item.price;
                   return (
                     <td key={item._id} style={{ padding: '1rem', textAlign: 'center' }}>
-                      <strong style={{ fontSize: '1.15rem', color: 'var(--primary)' }}>${finalPrice.toFixed(2)}</strong>
+                      <strong style={{ fontSize: '1.15rem', color: 'var(--primary)' }}>₹{finalPrice.toFixed(2)}</strong>
                       {hasDiscount && (
                         <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block', textDecoration: 'line-through' }}>
-                          ${item.price.toFixed(2)}
+                          ₹{item.price.toFixed(2)}
                         </span>
                       )}
                     </td>
@@ -218,7 +218,7 @@ function ComparePage() {
                 <td style={{ padding: '1rem 1.5rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Availability</td>
                 {compareItems.map((item) => (
                   <td key={item._id} style={{ padding: '1rem', textAlign: 'center' }}>
-                    <span className={`stock-badge ${item.stock > 0 ? 'in-stock' : 'out-stock'}`} style={{ display: 'inline-block' }}>
+                    <span className={`stock-badge ₹{item.stock > 0 ? 'in-stock' : 'out-stock'}`} style={{ display: 'inline-block' }}>
                       {item.stock > 0 ? `${item.stock} in stock` : 'Out of Stock'}
                     </span>
                   </td>

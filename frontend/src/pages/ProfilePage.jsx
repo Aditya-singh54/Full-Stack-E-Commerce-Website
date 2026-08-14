@@ -18,7 +18,7 @@ function ProfilePage() {
         <div className="profile-details">
           <div className="detail-item">
             <span className="detail-label">Account Role</span>
-            <span className={`role-badge ${user.role === 'admin' ? 'role-admin' : 'role-user'}`}>
+            <span className={`role-badge ₹{user.role === 'admin' ? 'role-admin' : 'role-user'}`}>
               {user.role}
             </span>
           </div>

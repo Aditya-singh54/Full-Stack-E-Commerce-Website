@@ -1734,3 +1734,28 @@ body {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.1); }
 }
+
+/* Category Strip Styles */
+.category-strip-scroll::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.category-strip-item:hover .category-strip-img-box {
+  transform: scale(1.05);
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 12px var(--primary-light);
+}
+
+.category-strip-item:hover img {
+  transform: scale(1.1);
+}
+
+.category-strip-item:hover span {
+  color: var(--primary) !important;
+}
+
+/* Google Auth styles */
+.google-account-row:hover {
+  background-color: #f3f4f6 !important;
+  border-color: #d1d5db !important;
+}

@@ -207,11 +207,11 @@ function CheckoutPage() {
                       {item.product.name}
                     </h4>
                     <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-                      Qty: {item.quantity} &times; ${unitPrice.toFixed(2)}
+                      Qty: {item.quantity} &times; ₹{unitPrice.toFixed(2)}
                     </span>
                   </div>
                   <span style={{ fontSize: '0.95rem', fontWeight: 700 }}>
-                    ${(unitPrice * item.quantity).toFixed(2)}
+                    ₹{(unitPrice * item.quantity).toFixed(2)}
                   </span>
                 </div>
               );
@@ -221,24 +221,24 @@ function CheckoutPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', borderTop: '1px solid var(--border-color)', paddingTop: '1.25rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
               <span>Items Total</span>
-              <span>${subtotal.toFixed(2)}</span>
+              <span>₹{subtotal.toFixed(2)}</span>
             </div>
 
             {discountAmount > 0 && (
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', color: 'var(--success)', fontWeight: 500 }}>
                 <span>Discounts Saved</span>
-                <span>-${discountAmount.toFixed(2)}</span>
+                <span>-₹{discountAmount.toFixed(2)}</span>
               </div>
             )}
 
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
               <span>Shipping Fee</span>
-              <span>{shippingFee === 0 ? 'FREE' : `$${shippingFee.toFixed(2)}`}</span>
+              <span>{shippingFee === 0 ? 'FREE' : `₹${shippingFee.toFixed(2)}`}</span>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.2rem', fontWeight: 800, borderTop: '1px solid var(--border-color)', paddingTop: '0.75rem', color: '#fff' }}>
               <span>Order Total</span>
-              <span style={{ color: 'var(--primary)' }}>${grandTotal.toFixed(2)}</span>
+              <span style={{ color: 'var(--primary)' }}>₹{grandTotal.toFixed(2)}</span>
             </div>
           </div>
 

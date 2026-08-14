@@ -107,7 +107,7 @@ function OrdersPage() {
 
                 <div>
                   <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.2rem' }}>STATUS</span>
-                  <span className={`order-status-badge ${getStatusClass(order.orderStatus)}`}>
+                  <span className={`order-status-badge ₹{getStatusClass(order.orderStatus)}`}>
                     {order.orderStatus}
                   </span>
                 </div>
@@ -148,7 +148,7 @@ function OrdersPage() {
                   <div>
                     <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block', textAlign: 'right' }}>TOTAL AMOUNT</span>
                     <strong style={{ fontSize: '1.25rem', color: 'var(--primary)' }}>
-                      ${order.totalAmount.toFixed(2)}
+                      ₹{order.totalAmount.toFixed(2)}
                     </strong>
                   </div>
                   

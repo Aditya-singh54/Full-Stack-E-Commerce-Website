@@ -59,7 +59,7 @@ export const CartProvider = ({ children }) => {
     });
 
     const netTotalBeforeShipping = sub - disc;
-    // Free shipping above $100, otherwise $10 flat rate (if cart is not empty)
+    // Free shipping above ₹100, otherwise $10 flat rate (if cart is not empty)
     const ship = netTotalBeforeShipping > 100 || count === 0 ? 0 : 10;
 
     setCartCount(count);

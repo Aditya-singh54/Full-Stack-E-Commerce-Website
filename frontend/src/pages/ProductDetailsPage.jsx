@@ -164,12 +164,12 @@ function ProductDetailsPage() {
           <div className="info-price-row">
             {hasDiscount ? (
               <div className="pricing-grid">
-                <span className="promo-price">${discountedPrice}</span>
-                <span className="old-strike-price">${product.price.toFixed(2)}</span>
-                <span className="discount-saved-badge">Save ${ (product.price - discountedPrice).toFixed(2) }</span>
+                <span className="promo-price">₹{discountedPrice}</span>
+                <span className="old-strike-price">₹{product.price.toFixed(2)}</span>
+                <span className="discount-saved-badge">Save ₹{ (product.price - discountedPrice).toFixed(2) }</span>
               </div>
             ) : (
-              <span className="promo-price">${product.price.toFixed(2)}</span>
+              <span className="promo-price">₹{product.price.toFixed(2)}</span>
             )}
           </div>
 

@@ -41,7 +41,7 @@ function ValueScore({ score, product }) {
               height: '100%',
               background: getScoreColor(score),
               borderRadius: '10px',
-              boxShadow: `0 0 10px ${getScoreColor(score)}`
+              boxShadow: `0 0 10px ₹{getScoreColor(score)}`
             }}
           ></div>
         </div>

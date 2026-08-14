@@ -134,8 +134,55 @@ const getUserProfile = async (req, res) => {
   }
 };
 
+// @desc    Auth user with Google credentials
+// @route   POST /api/auth/google-login
+// @access  Public
+const googleLoginUser = async (req, res) => {
+  try {
+    const { name, email } = req.body;
+
+    if (!email || !name) {
+      return res.status(400).json({
+        success: false,
+        message: 'Google login requires email and name'
+      });
+    }
+
+    // Find or create user
+    let user = await User.findOne({ email });
+
+    if (!user) {
+      // Create a passwordless user
+      const dummyPassword = Math.random().toString(36).slice(-10);
+      user = await User.create({
+        name,
+        email,
+        password: dummyPassword
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: 'Logged in with Google successfully',
+      data: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        token: generateToken(user._id)
+      }
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Server error: ' + error.message
+    });
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser,
-  getUserProfile
+  getUserProfile,
+  googleLoginUser
 };
