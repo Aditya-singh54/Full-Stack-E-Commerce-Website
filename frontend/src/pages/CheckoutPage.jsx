@@ -211,7 +211,7 @@ function CheckoutPage() {
                     </span>
                   </div>
                   <span style={{ fontSize: '0.95rem', fontWeight: 700 }}>
-                    ${(unitPrice * item.quantity).toFixed(2)}
+                    ₹{(unitPrice * item.quantity).toFixed(2)}
                   </span>
                 </div>
               );

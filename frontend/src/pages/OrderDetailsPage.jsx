@@ -253,7 +253,7 @@ function OrderDetailsPage() {
                     </span>
                   </div>
                   <span style={{ fontSize: '1.1rem', fontWeight: 700 }}>
-                    ${(item.price * item.quantity).toFixed(2)}
+                    ₹{(item.price * item.quantity).toFixed(2)}
                   </span>
                 </div>
               ))}
