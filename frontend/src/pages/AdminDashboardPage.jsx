@@ -247,28 +247,28 @@ function AdminDashboardPage() {
       <div style={{ display: 'flex', gap: '1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
         <button
           onClick={() => setActiveTab('overview')}
-          className={`pagination-btn number ₹{activeTab === 'overview' ? 'active' : ''}`}
+          className={`pagination-btn number ${activeTab === 'overview' ? 'active' : ''}`}
           style={{ width: 'auto', padding: '0.5rem 1.5rem', height: 'auto', borderRadius: '8px 8px 0 0' }}
         >
           Overview Stats
         </button>
         <button
           onClick={() => setActiveTab('products')}
-          className={`pagination-btn number ₹{activeTab === 'products' ? 'active' : ''}`}
+          className={`pagination-btn number ${activeTab === 'products' ? 'active' : ''}`}
           style={{ width: 'auto', padding: '0.5rem 1.5rem', height: 'auto', borderRadius: '8px 8px 0 0' }}
         >
           Manage Catalog
         </button>
         <button
           onClick={() => setActiveTab('orders')}
-          className={`pagination-btn number ₹{activeTab === 'orders' ? 'active' : ''}`}
+          className={`pagination-btn number ${activeTab === 'orders' ? 'active' : ''}`}
           style={{ width: 'auto', padding: '0.5rem 1.5rem', height: 'auto', borderRadius: '8px 8px 0 0' }}
         >
           Manage Orders
         </button>
         <button
           onClick={() => setActiveTab('users')}
-          className={`pagination-btn number ₹{activeTab === 'users' ? 'active' : ''}`}
+          className={`pagination-btn number ${activeTab === 'users' ? 'active' : ''}`}
           style={{ width: 'auto', padding: '0.5rem 1.5rem', height: 'auto', borderRadius: '8px 8px 0 0' }}
         >
           Customer Directory
@@ -292,7 +292,7 @@ function AdminDashboardPage() {
                 
                 <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', boxShadow: 'var(--shadow-sm)' }}>
                   <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Total Sales (Revenue)</span>
-                  <strong style={{ fontSize: '2rem', color: 'var(--success)' }}>₹{stats.totalRevenue.toFixed(2)}</strong>
+                  <strong style={{ fontSize: '2rem', color: 'var(--success)' }}>${stats.totalRevenue.toFixed(2)}</strong>
                 </div>
 
                 <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', boxShadow: 'var(--shadow-sm)' }}>
@@ -330,7 +330,7 @@ function AdminDashboardPage() {
                         <div key={item.category} style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem' }}>
                             <span style={{ fontWeight: 600 }}>{item.category}</span>
-                            <span style={{ color: 'var(--text-muted)' }}>₹{item.sales.toFixed(2)} ({share.toFixed(0)}%)</span>
+                            <span style={{ color: 'var(--text-muted)' }}>${item.sales.toFixed(2)} ({share.toFixed(0)}%)</span>
                           </div>
                           <div style={{ height: '8px', background: 'var(--bg-tertiary)', borderRadius: '4px', overflow: 'hidden' }}>
                             <div style={{ width: `${share}%`, height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div>
@@ -356,7 +356,7 @@ function AdminDashboardPage() {
                       return (
                         <div key={day.date} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, height: '100%', justifyContent: 'flex-end', position: 'relative' }} className="trend-bar-column">
                           <div style={{ width: '14px', height: `${Math.max(8, heightPercent)}%`, background: 'var(--accent)', borderRadius: '4px 4px 0 0', position: 'relative', minHeight: '4px' }} className="trend-bar-fill">
-                            <span className="trend-bar-tooltip">₹{day.revenue.toFixed(0)}</span>
+                            <span className="trend-bar-tooltip">${day.revenue.toFixed(0)}</span>
                           </div>
                           <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.5rem', transform: 'rotate(-45deg)', display: 'block', height: '20px', whiteSpace: 'nowrap' }}>
                             {day.date.slice(5)}
@@ -382,8 +382,8 @@ function AdminDashboardPage() {
                           <strong>{o.user?.name || 'Customer'}</strong>
                           <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem', display: 'block' }}>ID: #{o._id}</span>
                         </div>
-                        <span style={{ fontWeight: 600, color: 'var(--primary)' }}>₹{o.totalAmount.toFixed(2)}</span>
-                        <span className={`order-status-badge ₹{getStatusClass(o.orderStatus)}`} style={{ fontSize: '0.75rem', padding: '0.2rem 0.6rem' }}>{o.orderStatus}</span>
+                        <span style={{ fontWeight: 600, color: 'var(--primary)' }}>${o.totalAmount.toFixed(2)}</span>
+                        <span className={`order-status-badge ${getStatusClass(o.orderStatus)}`} style={{ fontSize: '0.75rem', padding: '0.2rem 0.6rem' }}>{o.orderStatus}</span>
                       </div>
                     ))}
                   </div>
@@ -435,7 +435,7 @@ function AdminDashboardPage() {
                           {p.name}
                         </td>
                         <td style={{ padding: '0.75rem 1rem', color: 'var(--text-secondary)' }}>{p.category}</td>
-                        <td style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>₹{p.price.toFixed(2)}</td>
+                        <td style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>${p.price.toFixed(2)}</td>
                         <td style={{ padding: '0.75rem 1rem' }}>{p.discount > 0 ? `${p.discount}%` : '—'}</td>
                         <td style={{ padding: '0.75rem 1rem', fontWeight: 700, color: p.stock === 0 ? 'var(--danger)' : p.stock <= 5 ? 'var(--warning)' : 'var(--success)' }}>
                           {p.stock}
@@ -490,9 +490,9 @@ function AdminDashboardPage() {
                           <strong>{o.user?.name || 'Customer'}</strong>
                           <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block' }}>{o.user?.email || 'N/A'}</span>
                         </td>
-                        <td style={{ padding: '0.85rem 1rem', fontWeight: 700, color: 'var(--primary)' }}>₹{o.totalAmount.toFixed(2)}</td>
+                        <td style={{ padding: '0.85rem 1rem', fontWeight: 700, color: 'var(--primary)' }}>${o.totalAmount.toFixed(2)}</td>
                         <td style={{ padding: '0.85rem 1rem' }}>
-                          <span className={`order-status-badge ₹{getStatusClass(o.orderStatus)}`} style={{ fontSize: '0.75rem', padding: '0.2rem 0.6rem' }}>
+                          <span className={`order-status-badge ${getStatusClass(o.orderStatus)}`} style={{ fontSize: '0.75rem', padding: '0.2rem 0.6rem' }}>
                             {o.orderStatus}
                           </span>
                         </td>
@@ -548,7 +548,7 @@ function AdminDashboardPage() {
                         <td style={{ padding: '0.85rem 1rem', fontWeight: 600 }}>{u.name}</td>
                         <td style={{ padding: '0.85rem 1rem', color: 'var(--text-secondary)' }}>{u.email}</td>
                         <td style={{ padding: '0.85rem 1rem' }}>
-                          <span className={`role-badge ₹{u.role === 'admin' ? 'role-admin' : 'role-user'}`} style={{ fontSize: '0.75rem', padding: '0.2rem 0.6rem' }}>
+                          <span className={`role-badge ${u.role === 'admin' ? 'role-admin' : 'role-user'}`} style={{ fontSize: '0.75rem', padding: '0.2rem 0.6rem' }}>
                             {u.role}
                           </span>
                         </td>

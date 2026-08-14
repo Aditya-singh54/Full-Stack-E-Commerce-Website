@@ -10,7 +10,7 @@ axios.interceptors.request.use(
       ? JSON.parse(localStorage.getItem('userInfo'))
       : null;
     if (userInfo && userInfo.token) {
-      config.headers.Authorization = `Bearer ₹{userInfo.token}`;
+      config.headers.Authorization = `Bearer ${userInfo.token}`;
     }
     return config;
   },

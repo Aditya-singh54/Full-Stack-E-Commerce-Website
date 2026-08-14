@@ -39,12 +39,12 @@ function AppContent() {
         
         {/* Mobile Hamburger Toggle Button */}
         <button className="nav-toggle-btn" onClick={toggleMenu} aria-label="Toggle Navigation Menu">
-          <div className={`hamburger-line ₹{menuOpen ? 'open' : ''}`}></div>
-          <div className={`hamburger-line ₹{menuOpen ? 'open' : ''}`}></div>
-          <div className={`hamburger-line ₹{menuOpen ? 'open' : ''}`}></div>
+          <div className={`hamburger-line ${menuOpen ? 'open' : ''}`}></div>
+          <div className={`hamburger-line ${menuOpen ? 'open' : ''}`}></div>
+          <div className={`hamburger-line ${menuOpen ? 'open' : ''}`}></div>
         </button>
 
-        <nav className={`nav-links ₹{menuOpen ? 'mobile-open' : ''}`}>
+        <nav className={`nav-links ${menuOpen ? 'mobile-open' : ''}`}>
           <Link to="/" onClick={closeMenu}>Home</Link>
           <Link to="/products" onClick={closeMenu}>Shop</Link>
           {user ? (
